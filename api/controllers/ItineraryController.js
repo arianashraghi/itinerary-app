@@ -1,7 +1,11 @@
 exports.get = (req, res, next) => {
-  return "Load itinerary data";
+  return res.json({
+    result: "Hello",
+  });
 };
 
 exports.save = (req, res, next) => {
-  return "Saving itinerary";
+  return res.json({
+    result: "Save",
+  });
 };
