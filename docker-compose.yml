@@ -1,0 +1,26 @@
+version: '3.3'
+
+services:
+  api:
+    container_name: blueboard_api
+    volumes:
+      - ./api:/api
+    build:
+      context: ./api
+      dockerfile: Dockerfile-dev
+    ports:
+      - 8080:80
+  mysql:
+    container_name: blueboard_mysql
+    image: mysql:latest
+    command: --default-authentication-plugin=mysql_native_password
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: rootpass
+      MYSQL_USER: devuser
+      MYSQL_PASSWORD: devpass
+      MYSQL_DATABASE: blueboard
+    ports:
+      - 3306:3306
+    volumes:
+      - ~/blueboard_mysqldata:/var/lib/mysql
