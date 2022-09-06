@@ -1,0 +1,8 @@
+FROM node:18.7
+
+RUN echo "again";
+WORKDIR /api
+
+EXPOSE 80 
+
+CMD ["sh", "./start.sh"]
