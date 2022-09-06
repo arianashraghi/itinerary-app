@@ -10,6 +10,8 @@ const itineraryRouter = require("./routes/ItineraryRouter");
 const app = Express();
 const server = Http.createServer(app);
 
+app.use("/", Express.static("public"));
+
 // Parse requests
 app.use(bodyParser.json());
 
