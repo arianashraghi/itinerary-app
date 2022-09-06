@@ -1,0 +1,16 @@
+.content {
+    width:100%;
+}
+
+.price {
+    text-align:right;
+}
+
+.name {
+    font-size:22px;
+    margin-left:5px;
+    font-weight:bold;
+}
+.icon {
+    width:70px;
+}

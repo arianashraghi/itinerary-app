@@ -15,7 +15,12 @@ const initalState = {
 const itinerarySlice = createSlice({
   name: "itinerary",
   initialState: initalState,
-  reducers: {},
+  reducers: {
+    updateData(state, action) {
+      state.data = action.payload.data;
+      state.itinerary = action.payload.itinerary;
+    },
+  },
 });
 
 export const reducer = itinerarySlice.reducer;

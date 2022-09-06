@@ -53,8 +53,8 @@ exports.getData = async () => {
     response["itinerary"] = await getItinerary();
     response["itinerary"]["activities"] = await getActivities();
   } catch (err) {
+    // TODO handle errors
     console.log(err);
   }
-  console.log("here");
   return response;
 };
