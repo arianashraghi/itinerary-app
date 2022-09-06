@@ -10,6 +10,7 @@ const initalState = {
     hotelId: 0,
     activities: {},
     selectedHotel: {},
+    selectedActivities: {},
   },
 };
 
@@ -21,10 +22,21 @@ const itinerarySlice = createSlice({
       state.data = action.payload.data;
       state.itinerary = action.payload.itinerary;
 
-      // Update current hotel name, imageLink, overallRating, price, best review
-      console.log(action.payload.data.hotels[action.payload.itinerary.hotelId]);
+      // Find selected hotel
       state.itinerary.selectedHotel =
         action.payload.data.hotels[action.payload.itinerary.hotelId];
+      // Find selected activities for each day
+      const selectedActivities = {};
+      for (const [dayNum, dayActivities] of Object.entries(
+        action.payload.itinerary.activities
+      )) {
+        selectedActivities[dayNum] = {
+          restaurant:
+            action.payload.data.restaurants[dayActivities.restaurantId],
+          leisure: action.payload.data.leisures[dayActivities.leisureId],
+        };
+      }
+      state.itinerary.selectedActivities = selectedActivities;
     },
   },
 });

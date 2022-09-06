@@ -6,9 +6,10 @@ const Hotel = (props) => {
   const selectedHotel = useSelector(
     (state) => state.itinerary.itinerary.selectedHotel
   );
+  if (selectedHotel.name == undefined) return <div></div>;
   const imageLink = "http://localhost" + selectedHotel.imageLink;
   return (
-    <div class="container">
+    <div className="container">
       <table>
         <tr>
           <td>

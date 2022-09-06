@@ -1,0 +1,13 @@
+.activityImage {
+    width:300px;
+    height:300px;
+    margin:auto;
+}
+.dayTitle {
+    font-weight:bold;
+    text-align:center;
+}
+.activityContainer {
+   text-align:center;
+   margin-top:25px;
+}

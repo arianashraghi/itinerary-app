@@ -3,6 +3,7 @@ import { useDispatch } from "react-redux";
 import { actions as itineraryActions } from "../../store/itinerary-slice";
 import Flight from "./Flight";
 import Hotel from "./Hotel";
+import Activities from "./Activities/Activities";
 
 const Itinerary = (props) => {
   const dispatch = useDispatch();
@@ -32,6 +33,7 @@ const Itinerary = (props) => {
     <div>
       <Flight></Flight>
       <Hotel></Hotel>
+      <Activities></Activities>
     </div>
   );
 };
