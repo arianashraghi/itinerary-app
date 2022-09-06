@@ -12,7 +12,40 @@ const Activities = () => {
         return (
           <div className={"container " + styles.activityContainer}>
             <h4 className={styles.dayTitle}>Day {key}</h4>
-            <div className="activityContainer"></div>
+            <table className={styles.activityContainer}>
+              <tr>
+                <td className={styles.imageContainer}>
+                  <img
+                    className={styles.activityImage}
+                    src={
+                      "http://localhost/" + activities[key].restaurant.imageLink
+                    }
+                  />
+                </td>
+                <td>
+                  <div>Restaurant </div>
+                  <div>{activities[key].restaurant.name}</div>
+                  <div>{activities[key].restaurant.overallRating}</div>
+                  <div>{activities[key].restaurant.bestReview}</div>
+                </td>
+              </tr>
+            </table>
+            <table className={styles.activityContainer}>
+              <tr>
+                <td className={styles.imageContainer}>
+                  <img
+                    className={styles.activityImage}
+                    src={
+                      "http://localhost/" + activities[key].leisure.imageLink
+                    }
+                  />
+                </td>
+                <td>
+                  <div>Restaurant </div>
+                  <div>{activities[key].leisure.name}</div>
+                </td>
+              </tr>
+            </table>
           </div>
         );
       })}
