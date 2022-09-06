@@ -25,8 +25,10 @@ const Activities = () => {
                 <td>
                   <div>Restaurant </div>
                   <div>{activities[key].restaurant.name}</div>
-                  <div>{activities[key].restaurant.overallRating}</div>
-                  <div>{activities[key].restaurant.bestReview}</div>
+                  <div>Rating: {activities[key].restaurant.overallRating}</div>
+                  <div>
+                    Best Review: {activities[key].restaurant.bestReview}
+                  </div>
                 </td>
               </tr>
             </table>
@@ -41,7 +43,7 @@ const Activities = () => {
                   />
                 </td>
                 <td>
-                  <div>Restaurant </div>
+                  <div>Leisure </div>
                   <div>{activities[key].leisure.name}</div>
                 </td>
               </tr>
