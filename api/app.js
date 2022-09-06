@@ -1,6 +1,8 @@
 const Express = require("express");
 const Http = require("http");
 const bodyParser = require("body-parser");
+// Setup Database
+const database = require("./util/database");
 
 // Load routers
 const itineraryRouter = require("./routes/ItineraryRouter");
