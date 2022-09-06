@@ -1,0 +1,13 @@
+.hotelImage {
+    width:200px;
+    height:200px;
+}
+.description {
+    margin-left:20px;
+}
+.label {
+    font-weight:bold;
+}
+.descItem {
+    margin-top: 5px;
+}
