@@ -1,14 +1,14 @@
 -- Since it's a prototype won't normalize the tables just the barebone. Ignoring all createdDate and updatedDate for all tables also
-CREATE TABLE users (
-    id INT PRIMARY KEY AUTO_INCREMENT,
-    email VARCHAR(256) UNIQUE NOT NULL,
-    fullName VARCHAR(256) NOT NULL
-);
-CREATE TABLE flights (
-    id INT PRIMARY KEY AUTO_INCREMENT,
-    airline VARCHAR(128) NOT NULL,
-    price DECIMAL(10, 2) NOT NULL DEFAULT 0.0
-);
+-- CREATE TABLE users (
+--     id INT PRIMARY KEY AUTO_INCREMENT,
+--     email VARCHAR(256) UNIQUE NOT NULL,
+--     fullName VARCHAR(256) NOT NULL
+-- );
+-- CREATE TABLE flights (
+--     id INT PRIMARY KEY AUTO_INCREMENT,
+--     airline VARCHAR(128) NOT NULL,
+--     price DECIMAL(10, 2) NOT NULL DEFAULT 0.0
+-- );
 -- CREATE TABLE flightClasses (
 --     id INT PRIMARY KEY AUTO_INCREMENT,
 --     flightId INT NOT NULL,
@@ -38,11 +38,11 @@ CREATE TABLE restaurants (
 CREATE TABLE leisures (
     id INT PRIMARY KEY AUTO_INCREMENT,
     name VARCHAR(256) NOT NULL,
-    imageLink VARCHAR(512),
+    imageLink VARCHAR(512)
 );
 CREATE TABLE itinerary (
     id INT PRIMARY KEY AUTO_INCREMENT,
-    hotelRoomId INT NOT NULL
+    hotelId INT NOT NULL
 );
 CREATE TABLE activities (
     itineraryId INT NOT NULL,
@@ -94,3 +94,22 @@ INSERT INTO leisures
 SET id = 3,
     name = "Greenwich Sightseeing",
     imageLink = "/images/greenwich.jpeg";
+-- Dummy itinerary
+INSERT INTO itinerary
+SET id = 1,
+    hotelId = 1;
+INSERT INTO activities
+SET itineraryId = 1,
+    dayNumber = 1,
+    leisureId = 1,
+    restaurantId = 1;
+INSERT INTO activities
+SET itineraryId = 1,
+    dayNumber = 2,
+    leisureId = 2,
+    restaurantId = 2;
+INSERT INTO activities
+SET itineraryId = 1,
+    dayNumber = 3,
+    leisureId = 3,
+    restaurantId = 1

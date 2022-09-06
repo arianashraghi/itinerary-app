@@ -1,6 +1,6 @@
 const mysql = require("mysql2");
 
-const pool = mysql.createPool({
+const pool = mysql.createConnection({
   user: "blueboard",
   password: "blueboard",
   database: "blueboard",

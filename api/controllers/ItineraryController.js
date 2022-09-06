@@ -1,17 +1,7 @@
 const itineraryModel = require("../models/ItineraryModel");
-exports.get = (req, res, next) => {
-  itineraryModel
-    .get()
-    .then((rows) => {
-      return res.json({
-        result: rows[0],
-      });
-    })
-    .catch((err) => {
-      return res.json({
-        result: err,
-      });
-    });
+exports.get = async (req, res, next) => {
+  const response = await itineraryModel.getData();
+  return res.json(response);
 };
 
 exports.save = (req, res, next) => {
