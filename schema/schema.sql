@@ -55,35 +55,42 @@ INSERT INTO flights
 SET airline = "Delta";
 -- Hotels
 INSERT INTO hotels
-SET name = "The Stratford Hotel London",
+SET id = 1,
+    name = "The Stratford Hotel London",
     imageLink = "/images/stratford.jpeg",
     overallRating = 8.7,
     price = 250,
     bestReview = "the rooms were big and pretty. all the amenities, and of course a great location.";
 INSERT INTO hotels
-SET name = "The Park Tower",
+SET id = 2,
+    name = "The Park Tower",
     imageLink = "/images/parktower.jpeg",
     overallRating = 9.2,
     price = 330,
     bestReview = "literally the most spectacular experience in hotels in London. the best of the best. you really feel like pampering yourself. the staff are so kind and welcoming. cleanliness";
 -- Restaurants
 INSERT INTO restaurants
-SET name = "Flat Three",
+SET id = 1,
+    name = "Flat Three",
     imageLink = "/images/flatthree.jpeg",
     overallRating = 9.5,
     bestReview = "I was in town for the weekend and had an amazing dinner experience with my brothers";
 INSERT INTO restaurants
-SET name = "Gulliver's",
+SET id = 2,
+    name = "Gulliver's",
     imageLink = "/images/gulliver.jpeg",
     overallRating = 7,
     bestReview = "Quality restaurant. I ordered the Calamari which came with a nice lemon-y flavored Arugula. The calamari was crispy and they were good sized";
 -- Leisures
 INSERT INTO leisures
-SET name = "Big Bus London Hop-On Hop-Off Tour",
+SET id = 1,
+    name = "Big Bus London Hop-On Hop-Off Tour",
     imageLink = "/images/hope.jpeg";
 INSERT INTO leisures
-SET name = "Stonehenge",
+SET id = 2,
+    name = "Stonehenge",
     imageLink = "/images/stonehenge.jpeg";
 INSERT INTO leisures
-SET name = "Greenwich Sightseeing",
+SET id = 3,
+    name = "Greenwich Sightseeing",
     imageLink = "/images/greenwich.jpeg";
