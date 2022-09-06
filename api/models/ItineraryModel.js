@@ -50,8 +50,8 @@ exports.getData = async () => {
     response["data"]["hotels"] = await getHotels();
     response["data"]["restaurants"] = await getRestaurants();
     response["data"]["leisures"] = await getLeisures();
-    response["data"]["itinerary"] = await getItinerary();
-    response["data"]["itinerary"]["activities"] = await getActivities();
+    response["itinerary"] = await getItinerary();
+    response["itinerary"]["activities"] = await getActivities();
   } catch (err) {
     console.log(err);
   }
