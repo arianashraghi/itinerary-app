@@ -10,6 +10,7 @@ const Itinerary = (props) => {
     // TODO Loading data based on the destination. Lazy loading
   const dispatch = useDispatch();
 
+  // TODO would be good to not hard code the host name to make it more flexible. 
   useEffect(() => {
     fetch("http://localhost/itinerary", {
       method: "GET",

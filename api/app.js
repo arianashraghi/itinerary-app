@@ -21,4 +21,5 @@ app.use(corsMiddleware);
 
 app.use(itineraryRouter);
 
+// TODO use environment variable
 server.listen(80);
