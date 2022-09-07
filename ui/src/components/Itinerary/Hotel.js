@@ -7,6 +7,7 @@ const Hotel = (props) => {
     (state) => state.itinerary.itinerary.selectedHotel
   );
   if (selectedHotel.name == undefined) return <div></div>;
+
   const imageLink = "http://localhost" + selectedHotel.imageLink;
   return (
     <div className="container">
@@ -23,8 +24,8 @@ const Hotel = (props) => {
                 {selectedHotel.overallRating}
               </div>
               <div className={styles.descItem}>
-                <span className={styles.label}>Price</span>
-                {selectedHotel.price}
+                <span className={styles.label}>Price: </span>$
+                {selectedHotel.price}/night
               </div>
               <div className={styles.descItem}>
                 <span className={styles.label}>Best Review:</span>{" "}

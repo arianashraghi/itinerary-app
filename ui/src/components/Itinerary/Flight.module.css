@@ -11,6 +11,12 @@
     margin-left:5px;
     font-weight:bold;
 }
+
 .icon {
     width:70px;
+}
+
+.date{
+    font-weight: normal;
+    font-size:14px;
 }
