@@ -21,6 +21,7 @@ const Hotel = (props) => {
 
   const changeHotel = (event) => {
     const hotelId = event.currentTarget.getAttribute("hotelId");
+    // Hardcoded to localhost for testing only
     fetch("http://localhost/itinerary/hotel/change", {
       method: "POST",
       body: JSON.stringify({
