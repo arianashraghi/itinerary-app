@@ -1,5 +1,7 @@
 const database = require("../util/database");
 
+// Could improve by combining some of the queries or all of them but for testing purposes will keep it the way it is.
+// TODO optimize queries
 const getHotels = async () => {
   const [rows, fields] = await database.execute("SELECT * FROM hotels");
   const hotels = {};
@@ -66,7 +68,7 @@ exports.changeHotel = (itineraryId, hotelId) => {
       itineraryId,
     ])
     .then(() => {
-      // Ignore
+      // Ignore for now
     })
     .catch((err) => {
       console.log("Oh no something went wrong", err);
@@ -88,7 +90,7 @@ exports.changeActivity = (itineraryId, dayNumber, type, activityId) => {
   database
     .execute(sql, newValues)
     .then(() => {
-      // Ignore
+      // Ignore for now
     })
     .catch((err) => {
       console.log("Oh no something went wrong", err);

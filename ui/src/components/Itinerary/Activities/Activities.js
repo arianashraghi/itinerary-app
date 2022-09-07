@@ -21,6 +21,7 @@ const Activities = () => {
   );
 
   function changeActivity(type, activityId, dayNumber, callback) {
+    // Hardcoded to localhost for testing only
     fetch("http://localhost/itinerary/activity/change", {
       method: "POST",
       body: JSON.stringify({
