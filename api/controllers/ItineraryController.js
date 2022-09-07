@@ -5,13 +5,6 @@ exports.get = async (req, res, next) => {
   return res.json(response);
 };
 
-exports.save = (req, res, next) => {
-  // TODO
-  return res.json({
-    result: "Save",
-  });
-};
-
 exports.changeHotel = (req, res, next) => {
   itineraryModel.changeHotel(req.body.itineraryId, req.body.hotelId);
   return res.json({

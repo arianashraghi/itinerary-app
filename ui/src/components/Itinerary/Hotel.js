@@ -21,7 +21,29 @@ const Hotel = (props) => {
 
   const changeHotel = (event) => {
     const hotelId = event.currentTarget.getAttribute("hotelId");
-    dispatch(itineraryActions.changeHotel({ hotelId: hotelId }));
+    fetch("http://localhost/itinerary/hotel/change", {
+      method: "POST",
+      body: JSON.stringify({
+        itineraryId: 1, // Hardcoded for prototype
+        hotelId: hotelId,
+      }),
+      headers: {
+        "Content-Type": "application/json",
+      },
+    })
+      .then((response) => {
+        if (response.ok) {
+          return response.json();
+        }
+      })
+      .then((data) => {
+        // Update data
+        dispatch(itineraryActions.changeHotel({ hotelId: hotelId }));
+      })
+      .catch((err) => {
+        // TODO handle errors
+        alert(err);
+      });
   };
 
   return (
