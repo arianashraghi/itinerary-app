@@ -25,6 +25,7 @@ const itinerarySlice = createSlice({
       // Find selected hotel
       state.itinerary.selectedHotel =
         action.payload.data.hotels[action.payload.itinerary.hotelId];
+
       // Find selected activities for each day
       const selectedActivities = {};
       for (const [dayNum, dayActivities] of Object.entries(
@@ -37,6 +38,10 @@ const itinerarySlice = createSlice({
         };
       }
       state.itinerary.selectedActivities = selectedActivities;
+    },
+    changeHotel(state, action) {
+      console.log(action.payload.hotelId);
+      state.itinerary.selectedHotel = state.data.hotels[action.payload.hotelId];
     },
   },
 });
