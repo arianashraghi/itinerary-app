@@ -1,5 +1,5 @@
 import styles from "./Flight.module.css";
-// TODO check in and check out date
+//TODO add Arrival and departure dates
 const { Fragment } = require("react");
 const Flight = (props) => {
   return (
