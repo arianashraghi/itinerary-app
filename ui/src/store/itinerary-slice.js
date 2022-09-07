@@ -1,4 +1,4 @@
-import { createSlice } from "@reduxjs/toolkit";
+import { createSlice, current } from "@reduxjs/toolkit";
 
 const initalState = {
   data: {
@@ -40,8 +40,18 @@ const itinerarySlice = createSlice({
       state.itinerary.selectedActivities = selectedActivities;
     },
     changeHotel(state, action) {
-      console.log(action.payload.hotelId);
       state.itinerary.selectedHotel = state.data.hotels[action.payload.hotelId];
+    },
+    changeRestaurant(state, action) {
+      const newRestaurant =
+        current(state).data.restaurants[action.payload.restaurantId];
+      state.itinerary.selectedActivities[action.payload.dayNumber].restaurant =
+        newRestaurant;
+    },
+    changeLeisure(state, action) {
+      const newLeisure = current(state).data.leisures[action.payload.leisureId];
+      state.itinerary.selectedActivities[action.payload.dayNumber].leisure =
+        newLeisure;
     },
   },
 });

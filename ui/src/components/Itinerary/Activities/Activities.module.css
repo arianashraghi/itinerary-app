@@ -19,3 +19,16 @@
    text-align:left;
    font-size:12px;
 }
+.listItemImage {
+    width:30px;
+    height:30px;
+}
+
+.listItem {
+    padding:5px;
+    font-size:12px;
+    cursor:pointer;
+}
+.listItem:hover {
+    background-color:#dddddd;
+}
