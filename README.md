@@ -18,3 +18,7 @@ You may also see any lint errors in the console.
 
 The page will reload when you make changes.\
 You may also see any lint errors in the console.
+
+<img src="demo.png"
+     alt="Demo"
+     style="float: left; margin-right: 10px;" />
