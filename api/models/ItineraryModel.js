@@ -58,3 +58,17 @@ exports.getData = async () => {
   }
   return response;
 };
+
+exports.changeHotel = (hotelId, itineraryId) => {
+  database
+    .execute("UPDATE itinerary SET hotelId=? WHERE id=?", [
+      hotelId,
+      itineraryId,
+    ])
+    .then(() => {
+      // Ignore
+    })
+    .catch((err) => {
+      console.log("Oh no something went wrong", err);
+    });
+};
