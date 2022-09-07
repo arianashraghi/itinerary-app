@@ -9,11 +9,13 @@
 --     airline VARCHAR(128) NOT NULL,
 --     price DECIMAL(10, 2) NOT NULL DEFAULT 0.0
 -- );
+-- TODO Different flight classes
 -- CREATE TABLE flightClasses (
 --     id INT PRIMARY KEY AUTO_INCREMENT,
 --     flightId INT NOT NULL,
 --     class VARCHAR(64) NOT NULL
 -- );
+-- TODO CHECK IN DATE AND CHECK OUT 
 CREATE TABLE hotels (
     id INT PRIMARY KEY AUTO_INCREMENT,
     name VARCHAR(256) NOT NULL,
@@ -22,6 +24,7 @@ CREATE TABLE hotels (
     price DECIMAL(10, 2) NOT NULL,
     bestReview TEXT
 );
+-- TODO Would be nice to have hotel rooms
 -- CREATE TABLE hotelRooms (
 --     id INT PRIMARY KEY AUTO_INCREMENT,
 --     hotelId INT NOT NULL,
@@ -40,10 +43,12 @@ CREATE TABLE leisures (
     name VARCHAR(256) NOT NULL,
     imageLink VARCHAR(512)
 );
+-- TODO Consider number of people
 CREATE TABLE itinerary (
     id INT PRIMARY KEY AUTO_INCREMENT,
     hotelId INT NOT NULL
 );
+-- TODO Multiple Activities for each day + Pricing
 CREATE TABLE activities (
     itineraryId INT NOT NULL,
     dayNumber SMALLINT NOT NULL,

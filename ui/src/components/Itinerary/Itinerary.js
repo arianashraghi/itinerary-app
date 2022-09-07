@@ -6,6 +6,8 @@ import Hotel from "./Hotel";
 import Activities from "./Activities/Activities";
 
 const Itinerary = (props) => {
+    // TODO to add pricing to all activities, hotel rooms, flights to calculate total price
+    // TODO Loading data based on the destination. Lazy loading
   const dispatch = useDispatch();
 
   useEffect(() => {
@@ -31,6 +33,8 @@ const Itinerary = (props) => {
 
   return (
     <div>
+        <div className={}></div>
+        <h3>Travel Itinerary</h3>
       <Flight></Flight>
       <Hotel></Hotel>
       <Activities></Activities>

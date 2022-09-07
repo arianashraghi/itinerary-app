@@ -2,7 +2,7 @@ import { useSelector } from "react-redux";
 import styles from "./Hotel.module.css";
 
 const Hotel = (props) => {
-  // Get selected Hotel
+  // TODO check in and check out date
   const selectedHotel = useSelector(
     (state) => state.itinerary.itinerary.selectedHotel
   );
