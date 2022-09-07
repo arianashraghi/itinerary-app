@@ -13,7 +13,19 @@ exports.save = (req, res, next) => {
 };
 
 exports.changeHotel = (req, res, next) => {
-  itineraryModel.changeHotel(req.body.hotelId, req.body.itineraryId);
+  itineraryModel.changeHotel(req.body.itineraryId, req.body.hotelId);
+  return res.json({
+    success: true,
+  });
+};
+
+exports.changeActivity = (req, res, next) => {
+  itineraryModel.changeActivity(
+    req.body.itineraryId,
+    req.body.dayNumber,
+    req.body.type,
+    req.body.activityId
+  );
   return res.json({
     success: true,
   });

@@ -59,12 +59,34 @@ exports.getData = async () => {
   return response;
 };
 
-exports.changeHotel = (hotelId, itineraryId) => {
+exports.changeHotel = (itineraryId, hotelId) => {
   database
     .execute("UPDATE itinerary SET hotelId=? WHERE id=?", [
       hotelId,
       itineraryId,
     ])
+    .then(() => {
+      // Ignore
+    })
+    .catch((err) => {
+      console.log("Oh no something went wrong", err);
+    });
+};
+
+exports.changeActivity = (itineraryId, dayNumber, type, activityId) => {
+  const newValues = [activityId, itineraryId, dayNumber];
+  let sql = "";
+  if (type == "restaurant") {
+    sql =
+      "UPDATE activities SET restaurantId=? WHERE itineraryId=? AND dayNumber=?";
+  } else if (type == "leisure") {
+    sql =
+      "UPDATE activities SET leisureId=? WHERE itineraryId=? AND dayNumber=?";
+  } else {
+    throw Error("Not supported");
+  }
+  database
+    .execute(sql, newValues)
     .then(() => {
       // Ignore
     })
