@@ -20,7 +20,7 @@ const Flight = (props) => {
                   </div>
                 </div>
               </td>
-              <td className={styles.price}>$299.99</td>
+              <td className={styles.price}>$500</td>
             </tr>
           </tbody>
           <tfoot></tfoot>

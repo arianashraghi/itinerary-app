@@ -11,8 +11,12 @@ const initalState = {
     activities: {},
     selectedHotel: {},
     selectedActivities: {},
+    total: 0.0,
   },
 };
+
+// Hardcoded flightPrice;
+const flightPrice = 500.0;
 
 const itinerarySlice = createSlice({
   name: "itinerary",
@@ -38,6 +42,7 @@ const itinerarySlice = createSlice({
         };
       }
       state.itinerary.selectedActivities = selectedActivities;
+      console.log("updating ");
     },
     changeHotel(state, action) {
       state.itinerary.selectedHotel = state.data.hotels[action.payload.hotelId];
@@ -52,6 +57,17 @@ const itinerarySlice = createSlice({
       const newLeisure = current(state).data.leisures[action.payload.leisureId];
       state.itinerary.selectedActivities[action.payload.dayNumber].leisure =
         newLeisure;
+    },
+    updatePrice(state) {
+      console.log("another one");
+      let total = flightPrice;
+      total += +state.itinerary.selectedHotel["price"] * 3;
+      for (let i = 1; i <= 3; i++) {
+        total +=
+          +state.itinerary.selectedActivities[i]["restaurant"]["price"] +
+          +state.itinerary.selectedActivities[i]["leisure"]["price"];
+      }
+      state.itinerary.total = total;
     },
   },
 });

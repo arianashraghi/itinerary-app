@@ -40,6 +40,7 @@ const Hotel = (props) => {
       .then((data) => {
         // Update data
         dispatch(itineraryActions.changeHotel({ hotelId: hotelId }));
+        dispatch(itineraryActions.updatePrice({}));
       })
       .catch((err) => {
         // TODO handle errors

@@ -61,6 +61,7 @@ const Activities = () => {
           dayNumber: dayNumber,
         })
       );
+      dispatch(itineraryActions.updatePrice());
     };
 
     changeActivity("restaurant", restaurantId, dayNumber, callback);
@@ -77,6 +78,7 @@ const Activities = () => {
           dayNumber: dayNumber,
         })
       );
+      dispatch(itineraryActions.updatePrice());
     };
     changeActivity("leisure", leisureId, dayNumber, callback);
   };
@@ -109,6 +111,7 @@ const Activities = () => {
                     <div>
                       Best Review: {activities[key].restaurant.bestReview}
                     </div>
+                    <div>Price: ${activities[key].restaurant.price}</div>
                     <div>
                       <Dropdown buttonName="Change Restaurant">
                         {Object.keys(availableRestaurants).map(
@@ -144,6 +147,10 @@ const Activities = () => {
                                       .bestReview
                                   }
                                 </div>
+                                <div>
+                                  Price: $
+                                  {availableRestaurants[restaurantKey].price}
+                                </div>
                               </div>
                             );
                           }
@@ -170,6 +177,7 @@ const Activities = () => {
                   <td>
                     <div>Leisure </div>
                     <div>{activities[key].leisure.name}</div>
+                    <div>Price: ${activities[key].leisure.price}</div>
                     <div>
                       <Dropdown buttonName="Change Leisure">
                         {Object.keys(availableLeisures).map((leisureKey) => {
@@ -190,6 +198,9 @@ const Activities = () => {
                                   }
                                 />{" "}
                                 {availableLeisures[leisureKey].name}
+                              </div>
+                              <div>
+                                Price: ${availableLeisures[leisureKey].price}
                               </div>
                             </div>
                           );

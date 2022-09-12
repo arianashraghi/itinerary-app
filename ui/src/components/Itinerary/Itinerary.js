@@ -1,5 +1,5 @@
 import { useEffect } from "react";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { actions as itineraryActions } from "../../store/itinerary-slice";
 import Flight from "./Flight";
 import Hotel from "./Hotel";
@@ -10,6 +10,7 @@ const Itinerary = (props) => {
   // TODO Loading data based on the destination. Lazy loading
   const dispatch = useDispatch();
 
+  const total = useSelector((state) => state.itinerary.itinerary.total);
   // TODO would be good to not hard code the host name to make it more flexible.
   useEffect(() => {
     fetch("http://localhost/itinerary", {
@@ -25,7 +26,9 @@ const Itinerary = (props) => {
       })
       .then((data) => {
         // Update data
+
         dispatch(itineraryActions.updateData(data));
+        dispatch(itineraryActions.updatePrice());
       })
       .catch((err) => {
         // TODO handle errors
@@ -35,7 +38,9 @@ const Itinerary = (props) => {
   return (
     <div>
       <div></div>
-      <h3>Travel Itinerary</h3>
+      <h3>
+        Travel Itinerary <span style={{ float: "right" }}>${total}</span>
+      </h3>
       <Flight></Flight>
       <Hotel></Hotel>
       <Activities></Activities>

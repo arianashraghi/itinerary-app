@@ -4,11 +4,11 @@
 --     email VARCHAR(256) UNIQUE NOT NULL,
 --     fullName VARCHAR(256) NOT NULL
 -- );
--- CREATE TABLE flights (
---     id INT PRIMARY KEY AUTO_INCREMENT,
---     airline VARCHAR(128) NOT NULL,
---     price DECIMAL(10, 2) NOT NULL DEFAULT 0.0
--- );
+CREATE TABLE flights (
+    id INT PRIMARY KEY AUTO_INCREMENT,
+    airline VARCHAR(128) NOT NULL,
+    price DECIMAL(10, 2) NOT NULL DEFAULT 0.0
+);
 -- TODO Different flight classes
 -- CREATE TABLE flightClasses (
 --     id INT PRIMARY KEY AUTO_INCREMENT,
@@ -36,12 +36,14 @@ CREATE TABLE restaurants (
     name VARCHAR(256) NOT NULL,
     imageLink VARCHAR(512),
     overallRating DECIMAL(2, 1) DEFAULT 0.0,
-    bestReview TEXT
+    bestReview TEXT,
+    price DECIMAL(10, 2) NOT NULL
 );
 CREATE TABLE leisures (
     id INT PRIMARY KEY AUTO_INCREMENT,
     name VARCHAR(256) NOT NULL,
-    imageLink VARCHAR(512)
+    imageLink VARCHAR(512),
+    price DECIMAL(10, 2) NOT NULL
 );
 -- TODO Consider number of people
 CREATE TABLE itinerary (
@@ -79,26 +81,31 @@ SET id = 1,
     name = "Flat Three",
     imageLink = "/images/flatthree.jpeg",
     overallRating = 9.5,
-    bestReview = "I was in town for the weekend and had an amazing dinner experience with my brothers";
+    bestReview = "I was in town for the weekend and had an amazing dinner experience with my brothers",
+    price = 75;
 INSERT INTO restaurants
 SET id = 2,
     name = "Gulliver's",
     imageLink = "/images/gulliver.jpeg",
     overallRating = 7,
-    bestReview = "Quality restaurant. I ordered the Calamari which came with a nice lemon-y flavored Arugula. The calamari was crispy and they were good sized";
+    bestReview = "Quality restaurant. I ordered the Calamari which came with a nice lemon-y flavored Arugula. The calamari was crispy and they were good sized",
+    price = 50;
 -- Leisures
 INSERT INTO leisures
 SET id = 1,
     name = "Big Bus London Hop-On Hop-Off Tour",
-    imageLink = "/images/hope.jpeg";
+    imageLink = "/images/hope.jpeg",
+    price = 24.99;
 INSERT INTO leisures
 SET id = 2,
     name = "Stonehenge",
-    imageLink = "/images/stonehenge.jpeg";
+    imageLink = "/images/stonehenge.jpeg",
+    price = 29.99;
 INSERT INTO leisures
 SET id = 3,
     name = "Greenwich Sightseeing",
-    imageLink = "/images/greenwich.jpeg";
+    imageLink = "/images/greenwich.jpeg",
+    price = 39.99;
 -- Dummy itinerary
 INSERT INTO itinerary
 SET id = 1,
