@@ -95,6 +95,7 @@ const Hotel = (props) => {
                         <div>
                           Best Review: {availableHotels[key].bestReview}
                         </div>
+                        <div>Price: ${availableHotels[key].price}</div>
                       </div>
                     );
                   })}

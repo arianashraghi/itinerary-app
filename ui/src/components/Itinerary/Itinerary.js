@@ -39,7 +39,8 @@ const Itinerary = (props) => {
     <div>
       <div></div>
       <h3>
-        Travel Itinerary <span style={{ float: "right" }}>${total}</span>
+        Travel Itinerary{" "}
+        <span style={{ float: "right", fontWeight: "bold" }}>${total}</span>
       </h3>
       <Flight></Flight>
       <Hotel></Hotel>
