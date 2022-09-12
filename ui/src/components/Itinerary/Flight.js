@@ -6,20 +6,24 @@ const Flight = (props) => {
     <Fragment>
       <div className="container">
         <table className={styles.content}>
-          <tr>
-            <td className={styles.icon}>
-              <img src="http://localhost/images/delta.png" />
-            </td>
-            <td>
-              <div className={styles.name}>
-                Delta
-                <div className={styles.date}>
-                  Sunday, January 1 - Saturday, January 4
+          <thead></thead>
+          <tbody>
+            <tr>
+              <td className={styles.icon}>
+                <img src="http://localhost/images/delta.png" />
+              </td>
+              <td>
+                <div className={styles.name}>
+                  Delta
+                  <div className={styles.date}>
+                    Sunday, January 1 - Saturday, January 4
+                  </div>
                 </div>
-              </div>
-            </td>
-            <td className={styles.price}>$299.99</td>
-          </tr>
+              </td>
+              <td className={styles.price}>$299.99</td>
+            </tr>
+          </tbody>
+          <tfoot></tfoot>
         </table>
       </div>
     </Fragment>

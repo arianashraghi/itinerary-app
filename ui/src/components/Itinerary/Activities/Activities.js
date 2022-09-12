@@ -51,8 +51,8 @@ const Activities = () => {
 
   // TODO Move Restaurant to it's own component
   const changeRestaurant = (event) => {
-    const restaurantId = event.currentTarget.getAttribute("restaurantId");
-    const dayNumber = event.currentTarget.getAttribute("dayNumber");
+    const restaurantId = event.currentTarget.getAttribute("restaurantid");
+    const dayNumber = event.currentTarget.getAttribute("daynumber");
 
     const callback = () => {
       dispatch(
@@ -68,8 +68,8 @@ const Activities = () => {
 
   // TODO Move Leisure to it's own component
   const changeLeisure = (event) => {
-    const leisureId = event.currentTarget.getAttribute("leisureId");
-    const dayNumber = event.currentTarget.getAttribute("dayNumber");
+    const leisureId = event.currentTarget.getAttribute("leisureid");
+    const dayNumber = event.currentTarget.getAttribute("daynumber");
     const callback = () => {
       dispatch(
         itineraryActions.changeLeisure({
@@ -85,34 +85,100 @@ const Activities = () => {
     <Fragment>
       {Object.keys(activities).map((key) => {
         return (
-          <div className={"container " + styles.activityContainer}>
+          <div className={"container " + styles.activityContainer} key={key}>
             <h4 className={styles.dayTitle}>Day {key}</h4>
             <table className={styles.activityContainer}>
-              <tr>
-                <td className={styles.imageContainer}>
-                  <img
-                    className={styles.activityImage}
-                    src={
-                      "http://localhost/" + activities[key].restaurant.imageLink
-                    }
-                  />
-                </td>
-                <td>
-                  <div>Restaurant </div>
-                  <div>{activities[key].restaurant.name}</div>
-                  <div>Rating: {activities[key].restaurant.overallRating}</div>
-                  <div>
-                    Best Review: {activities[key].restaurant.bestReview}
-                  </div>
-                  <div>
-                    <Dropdown buttonName="Change Restaurant">
-                      {Object.keys(availableRestaurants).map(
-                        (restaurantKey) => {
+              <thead></thead>
+              <tbody>
+                <tr>
+                  <td className={styles.imageContainer}>
+                    <img
+                      className={styles.activityImage}
+                      src={
+                        "http://localhost/" +
+                        activities[key].restaurant.imageLink
+                      }
+                    />
+                  </td>
+                  <td>
+                    <div>Restaurant </div>
+                    <div>{activities[key].restaurant.name}</div>
+                    <div>
+                      Rating: {activities[key].restaurant.overallRating}
+                    </div>
+                    <div>
+                      Best Review: {activities[key].restaurant.bestReview}
+                    </div>
+                    <div>
+                      <Dropdown buttonName="Change Restaurant">
+                        {Object.keys(availableRestaurants).map(
+                          (restaurantKey) => {
+                            return (
+                              <div
+                                key={restaurantKey}
+                                onClick={changeRestaurant}
+                                restaurantid={restaurantKey}
+                                daynumber={key}
+                                className={styles.listItem}
+                              >
+                                <div>
+                                  <img
+                                    className={styles.listItemImage}
+                                    src={
+                                      "http://localhost" +
+                                      availableRestaurants[restaurantKey]
+                                        .imageLink
+                                    }
+                                  />{" "}
+                                  {availableRestaurants[restaurantKey].name} ({" "}
+                                  {
+                                    availableRestaurants[restaurantKey]
+                                      .overallRating
+                                  }
+                                  )
+                                </div>
+                                <div>
+                                  Best Review:{" "}
+                                  {
+                                    availableRestaurants[restaurantKey]
+                                      .bestReview
+                                  }
+                                </div>
+                              </div>
+                            );
+                          }
+                        )}
+                      </Dropdown>
+                    </div>
+                  </td>
+                </tr>
+              </tbody>
+              <tfoot></tfoot>
+            </table>
+            <table className={styles.activityContainer}>
+              <thead></thead>
+              <tbody>
+                <tr>
+                  <td className={styles.imageContainer}>
+                    <img
+                      className={styles.activityImage}
+                      src={
+                        "http://localhost/" + activities[key].leisure.imageLink
+                      }
+                    />
+                  </td>
+                  <td>
+                    <div>Leisure </div>
+                    <div>{activities[key].leisure.name}</div>
+                    <div>
+                      <Dropdown buttonName="Change Leisure">
+                        {Object.keys(availableLeisures).map((leisureKey) => {
                           return (
                             <div
-                              onClick={changeRestaurant}
-                              restaurantId={restaurantKey}
-                              dayNumber={key}
+                              key={leisureKey}
+                              onClick={changeLeisure}
+                              leisureid={leisureKey}
+                              daynumber={key}
                               className={styles.listItem}
                             >
                               <div>
@@ -120,70 +186,20 @@ const Activities = () => {
                                   className={styles.listItemImage}
                                   src={
                                     "http://localhost" +
-                                    availableRestaurants[restaurantKey]
-                                      .imageLink
+                                    availableLeisures[leisureKey].imageLink
                                   }
                                 />{" "}
-                                {availableRestaurants[restaurantKey].name} ({" "}
-                                {
-                                  availableRestaurants[restaurantKey]
-                                    .overallRating
-                                }
-                                )
-                              </div>
-                              <div>
-                                Best Review:{" "}
-                                {availableRestaurants[restaurantKey].bestReview}
+                                {availableLeisures[leisureKey].name}
                               </div>
                             </div>
                           );
-                        }
-                      )}
-                    </Dropdown>
-                  </div>
-                </td>
-              </tr>
-            </table>
-            <table className={styles.activityContainer}>
-              <tr>
-                <td className={styles.imageContainer}>
-                  <img
-                    className={styles.activityImage}
-                    src={
-                      "http://localhost/" + activities[key].leisure.imageLink
-                    }
-                  />
-                </td>
-                <td>
-                  <div>Leisure </div>
-                  <div>{activities[key].leisure.name}</div>
-                  <div>
-                    <Dropdown buttonName="Change Leisure">
-                      {Object.keys(availableLeisures).map((leisureKey) => {
-                        return (
-                          <div
-                            onClick={changeLeisure}
-                            leisureId={leisureKey}
-                            dayNumber={key}
-                            className={styles.listItem}
-                          >
-                            <div>
-                              <img
-                                className={styles.listItemImage}
-                                src={
-                                  "http://localhost" +
-                                  availableLeisures[leisureKey].imageLink
-                                }
-                              />{" "}
-                              {availableLeisures[leisureKey].name}
-                            </div>
-                          </div>
-                        );
-                      })}
-                    </Dropdown>
-                  </div>
-                </td>
-              </tr>
+                        })}
+                      </Dropdown>
+                    </div>
+                  </td>
+                </tr>
+              </tbody>
+              <tfoot></tfoot>
             </table>
           </div>
         );

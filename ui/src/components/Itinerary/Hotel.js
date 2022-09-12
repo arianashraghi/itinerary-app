@@ -20,7 +20,7 @@ const Hotel = (props) => {
   const imageLink = "http://localhost" + selectedHotel.imageLink;
 
   const changeHotel = (event) => {
-    const hotelId = event.currentTarget.getAttribute("hotelId");
+    const hotelId = event.currentTarget.getAttribute("hotelid");
     // Hardcoded to localhost for testing only
     fetch("http://localhost/itinerary/hotel/change", {
       method: "POST",
@@ -50,51 +50,59 @@ const Hotel = (props) => {
   return (
     <div className="container">
       <table>
-        <tr>
-          <td>
-            <img src={imageLink} className={styles.hotelImage} />
-          </td>
-          <td>
-            <div className={styles.description}>
-              <div className={styles.descItem}>{selectedHotel.name}</div>
-              <div className={styles.descItem}>
-                <span className={styles.label}>Rating:</span>{" "}
-                {selectedHotel.overallRating}
-              </div>
-              <div className={styles.descItem}>
-                <span className={styles.label}>Price: </span>$
-                {selectedHotel.price}/night
-              </div>
-              <div className={styles.descItem}>
-                <span className={styles.label}>Best Review:</span>{" "}
-                {selectedHotel.bestReview}
-              </div>
-              <Dropdown buttonName="Change Hotel">
-                {Object.keys(availableHotels).map((key) => {
-                  return (
-                    <div
-                      onClick={changeHotel}
-                      hotelId={key}
-                      className={styles.listItem}
-                    >
-                      <div>
-                        <img
-                          className={styles.listItemImage}
-                          src={
-                            "http://localhost" + availableHotels[key].imageLink
-                          }
-                        />{" "}
-                        {availableHotels[key].name} ({" "}
-                        {availableHotels[key].overallRating})
+        <thead></thead>
+        <tbody>
+          <tr>
+            <td>
+              <img src={imageLink} className={styles.hotelImage} />
+            </td>
+            <td>
+              <div className={styles.description}>
+                <div className={styles.descItem}>{selectedHotel.name}</div>
+                <div className={styles.descItem}>
+                  <span className={styles.label}>Rating:</span>{" "}
+                  {selectedHotel.overallRating}
+                </div>
+                <div className={styles.descItem}>
+                  <span className={styles.label}>Price: </span>$
+                  {selectedHotel.price}/night
+                </div>
+                <div className={styles.descItem}>
+                  <span className={styles.label}>Best Review:</span>{" "}
+                  {selectedHotel.bestReview}
+                </div>
+                <Dropdown buttonName="Change Hotel">
+                  {Object.keys(availableHotels).map((key) => {
+                    return (
+                      <div
+                        key={key}
+                        onClick={changeHotel}
+                        hotelid={key}
+                        className={styles.listItem}
+                      >
+                        <div>
+                          <img
+                            className={styles.listItemImage}
+                            src={
+                              "http://localhost" +
+                              availableHotels[key].imageLink
+                            }
+                          />{" "}
+                          {availableHotels[key].name} ({" "}
+                          {availableHotels[key].overallRating})
+                        </div>
+                        <div>
+                          Best Review: {availableHotels[key].bestReview}
+                        </div>
                       </div>
-                      <div>Best Review: {availableHotels[key].bestReview}</div>
-                    </div>
-                  );
-                })}
-              </Dropdown>
-            </div>
-          </td>
-        </tr>
+                    );
+                  })}
+                </Dropdown>
+              </div>
+            </td>
+          </tr>
+        </tbody>
+        <tfoot></tfoot>
       </table>
     </div>
   );
